@@ -79,8 +79,12 @@ export default function App() {
       <div style={styles.bgImage} />
       <div style={styles.bgOverlay} />
       <div className="rsvp-card" style={styles.card}>
-        <img src="/logo.png" alt="Clinton-Sewallcrest Invitational" style={styles.logo} />
-        <h1 style={styles.title}>Clinton-Sewallcrest Invitational</h1>
+        <img
+          src="/logo.png"
+          alt="Clinton-Sewallcrest Invitational"
+          style={styles.logo}
+        />
+        <h1 style={styles.title}>Invitational</h1>
         <p className="event-subtitle" style={styles.subtitle}>
           {EVENT_DATE} &middot; {EVENT_TIME} @ {EVENT_LOCATION}
         </p>
@@ -190,9 +194,9 @@ const styles = {
   },
   logo: {
     width: "100%",
-    maxWidth: "200px",
+    maxWidth: "260px",
     height: "auto",
-    margin: "0 auto 12px",
+    margin: "0 auto 8px",
     display: "block",
   },
   title: {
