@@ -34,7 +34,7 @@ const TEAMS = [
 const FAQS = [
   {
     q: "What's the tournament format?",
-    a: "TBD — e.g. round robin, then top teams face off in a final.",
+    a: "Round robin, then a final. Each team plays every other team once (6 games), then the top 2 records play a championship game.",
   },
   { q: "How many points is a bucket?", a: "2s and 3s" },
   { q: "How many points to win a game?", a: "15 points" },
