@@ -79,10 +79,7 @@ export default function App() {
       <div style={styles.bgImage} />
       <div style={styles.bgOverlay} />
       <div className="rsvp-card" style={styles.card}>
-        <div style={styles.calendar}>
-          <div style={styles.calendarMonth}>AUG</div>
-          <div style={styles.calendarDay}>23</div>
-        </div>
+        <img src="/logo.png" alt="Clinton-Sewallcrest Invitational" style={styles.logo} />
         <h1 style={styles.title}>Clinton-Sewallcrest Invitational</h1>
         <p className="event-subtitle" style={styles.subtitle}>
           {EVENT_DATE} &middot; {EVENT_TIME} @ {EVENT_LOCATION}
@@ -191,28 +188,12 @@ const styles = {
     textAlign: "center",
     boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
   },
-  calendar: {
-    width: "64px",
-    margin: "0 auto 8px",
-    borderRadius: "10px",
-    overflow: "hidden",
-    boxShadow: "0 4px 14px rgba(0,0,0,0.15)",
-    border: "1px solid #e7e5e4",
-  },
-  calendarMonth: {
-    background: "#dc2626",
-    color: "#fff",
-    fontSize: "12px",
-    fontWeight: 700,
-    letterSpacing: "0.05em",
-    padding: "4px 0",
-  },
-  calendarDay: {
-    background: "#fff",
-    color: "#1c1917",
-    fontSize: "26px",
-    fontWeight: 800,
-    padding: "4px 0 6px",
+  logo: {
+    width: "100%",
+    maxWidth: "320px",
+    height: "auto",
+    margin: "0 auto 16px",
+    display: "block",
   },
   title: {
     fontSize: "26px",
