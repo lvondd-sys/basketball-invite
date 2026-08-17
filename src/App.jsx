@@ -68,6 +68,9 @@ export default function App() {
             padding-left: 20px !important;
             padding-right: 20px !important;
           }
+          .event-subtitle {
+            font-size: 14px !important;
+          }
         }
       `}</style>
       <div style={styles.bgImage} />
@@ -78,7 +81,7 @@ export default function App() {
           <div style={styles.calendarDay}>23</div>
         </div>
         <h1 style={styles.title}>Clinton-Sewallcrest Invitational</h1>
-        <p style={styles.subtitle}>
+        <p className="event-subtitle" style={styles.subtitle}>
           {EVENT_DATE} &middot; {EVENT_TIME} @ {EVENT_LOCATION}
         </p>
 
