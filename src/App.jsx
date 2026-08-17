@@ -46,7 +46,7 @@ const FAQS = [
     a: "Games are capped at 20 minutes. If nobody's hit 15 by then, it's a 5-minute overtime.",
   },
   {
-    q: "What should I bring?",
+    q: "What should you bring?",
     a: "A camping chair, some snacks, water, and beers.",
   },
 ];
