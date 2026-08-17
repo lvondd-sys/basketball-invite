@@ -79,9 +79,8 @@ export default function App() {
         </div>
         <h1 style={styles.title}>Clinton-Sewallcrest Invitational</h1>
         <p style={styles.subtitle}>
-          {EVENT_DATE} &middot; {EVENT_TIME}
+          {EVENT_DATE} &middot; {EVENT_TIME} @ {EVENT_LOCATION}
         </p>
-        <p style={styles.location}>📍 {EVENT_LOCATION}</p>
 
         <div className="teams-section" style={styles.teamsSection}>
           <h2 style={styles.faqTitle}>Teams</h2>
@@ -219,12 +218,6 @@ const styles = {
     fontSize: "16px",
     color: "#44403c",
     fontWeight: 600,
-    margin: "0 0 6px",
-  },
-  location: {
-    fontSize: "14px",
-    color: "#78716c",
-    fontWeight: 500,
     margin: 0,
   },
   teamsSection: {
