@@ -190,9 +190,9 @@ const styles = {
   },
   logo: {
     width: "100%",
-    maxWidth: "320px",
+    maxWidth: "200px",
     height: "auto",
-    margin: "0 auto 16px",
+    margin: "0 auto 12px",
     display: "block",
   },
   title: {
