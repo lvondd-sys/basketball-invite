@@ -33,17 +33,20 @@ const TEAMS = [
 
 const FAQS = [
   {
-    q: "What's the tournament format?",
+    q: "How does the tournament work?",
     a: "Round robin, then a final. Each team plays every other team once (6 games), then the top 2 records play a championship game.",
   },
-  { q: "How many points is a bucket?", a: "2s and 3s" },
-  { q: "How many points to win a game?", a: "15 points" },
   {
-    q: "What if a game goes for too long?",
-    a: "If a game reaches 20min, 5min overtime.",
+    q: "How do you score points?",
+    a: "Buckets are worth 2 or 3 points, same as regular ball.",
+  },
+  { q: "What's the winning score?", a: "First team to 15 points wins." },
+  {
+    q: "What happens if a game runs long?",
+    a: "Games are capped at 20 minutes. If nobody's hit 15 by then, it's a 5-minute overtime.",
   },
   {
-    q: "What should you bring?",
+    q: "What should I bring?",
     a: "A camping chair, some snacks, water, and beers.",
   },
 ];
