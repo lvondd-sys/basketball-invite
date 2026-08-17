@@ -8,26 +8,26 @@ const TEAMS = [
   {
     name: "Team 1",
     players: ["Jake", "Forest", "Cody", "Oz"],
-    color: "#dc2626",
-    bg: "#fef2f2",
+    color: "#1e3a5f",
+    bg: "#f0f4f8",
   },
   {
     name: "Team 2",
     players: ["Brandon", "Erik B", "Steve", "Isiah"],
-    color: "#2563eb",
-    bg: "#eff6ff",
+    color: "#0c0a09",
+    bg: "#f5f5f4",
   },
   {
     name: "Team 3",
     players: ["Gavin", "Eric M", "Nate", "Matt"],
-    color: "#16a34a",
-    bg: "#f0fdf4",
+    color: "#2c5282",
+    bg: "#eff6ff",
   },
   {
     name: "Team 4",
     players: ["Lucas", "Davy", "Dave", "Spencer"],
-    color: "#ea580c",
-    bg: "#fff7ed",
+    color: "#44403c",
+    bg: "#fafaf9",
   },
 ];
 
