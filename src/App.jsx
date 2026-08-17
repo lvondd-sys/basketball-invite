@@ -79,12 +79,12 @@ export default function App() {
       <div style={styles.bgImage} />
       <div style={styles.bgOverlay} />
       <div className="rsvp-card" style={styles.card}>
-        <img
-          src="/logo.png"
-          alt="Clinton-Sewallcrest Invitational"
-          style={styles.logo}
+        <div
+          style={styles.logoBadge}
+          role="img"
+          aria-label="Clinton-Sewallcrest Invitational"
         />
-        <h1 style={styles.title}>Invitational</h1>
+        <h1 style={styles.title}>Clinton-Sewallcrest Invitational</h1>
         <p className="event-subtitle" style={styles.subtitle}>
           {EVENT_DATE} &middot; {EVENT_TIME} @ {EVENT_LOCATION}
         </p>
@@ -192,12 +192,16 @@ const styles = {
     textAlign: "center",
     boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
   },
-  logo: {
-    width: "100%",
-    maxWidth: "260px",
-    height: "auto",
-    margin: "0 auto 8px",
-    display: "block",
+  logoBadge: {
+    width: "110px",
+    height: "110px",
+    borderRadius: "50%",
+    margin: "0 auto 12px",
+    boxShadow: "0 6px 16px rgba(0,0,0,0.2)",
+    backgroundImage: "url(/logo_ball.png)",
+    backgroundSize: "140%",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   },
   title: {
     fontSize: "26px",
