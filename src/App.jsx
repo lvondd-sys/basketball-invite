@@ -53,9 +53,26 @@ export default function App() {
 
   return (
     <div style={styles.page}>
+      <style>{`
+        @media (max-width: 480px) {
+          .teams-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .rsvp-card {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .teams-section {
+            margin-left: -20px !important;
+            margin-right: -20px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+        }
+      `}</style>
       <div style={styles.bgImage} />
       <div style={styles.bgOverlay} />
-      <div style={styles.card}>
+      <div className="rsvp-card" style={styles.card}>
         <div style={styles.calendar}>
           <div style={styles.calendarMonth}>AUG</div>
           <div style={styles.calendarDay}>23</div>
@@ -66,9 +83,9 @@ export default function App() {
         </p>
         <p style={styles.location}>📍 {EVENT_LOCATION}</p>
 
-        <div style={styles.teamsSection}>
+        <div className="teams-section" style={styles.teamsSection}>
           <h2 style={styles.faqTitle}>Teams</h2>
-          <div style={styles.teamsGrid}>
+          <div className="teams-grid" style={styles.teamsGrid}>
             {TEAMS.map((team) => (
               <div
                 key={team.name}
