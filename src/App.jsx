@@ -25,7 +25,7 @@ const TEAMS = [
   },
   {
     name: "Team 4",
-    players: ["Lucas", "Davy", "Dave", "Spencer"],
+    players: ["Lucas", "Davy / Pete", "Dave", "Spencer"],
     color: "#44403c",
     bg: "#fafaf9",
   },
