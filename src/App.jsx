@@ -33,6 +33,10 @@ const TEAMS = [
 
 const FAQS = [
   {
+    q: "What must you bring?",
+    a: "A light shirt and a dark shirt (or jerseys) so we can tell teams apart on the court and get some good pictures.",
+  },
+  {
     q: "How does the tournament work?",
     a: "Round robin, then a final. Each team plays every other team once (6 games), then the top 2 records play a championship game.",
   },
