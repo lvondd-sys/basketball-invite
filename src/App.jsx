@@ -13,7 +13,7 @@ const TEAMS = [
   },
   {
     name: "Team 2",
-    players: ["Hummer / Brandon (out)", "Erik B", "Steve", "Isiah"],
+    players: ["Hummer", "Erik B", "Steve", "Isiah"],
     color: "#0c0a09",
     bg: "#f5f5f4",
   },
@@ -128,6 +128,10 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+          <div style={styles.superSubs}>
+            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,
+            Brandon (maybe)
           </div>
         </div>
 
@@ -269,6 +273,18 @@ const styles = {
     borderRadius: "4px",
     border: "1px solid",
     boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
+  },
+  superSubs: {
+    marginTop: "14px",
+    fontFamily: "'Bebas Neue', sans-serif",
+    fontSize: "14px",
+    letterSpacing: "0.02em",
+    color: "#57534e",
+    textAlign: "center",
+  },
+  superSubsLabel: {
+    fontWeight: 700,
+    color: "#1c1917",
   },
   faqSection: {
     marginTop: "28px",
