@@ -130,8 +130,8 @@ export default function App() {
             ))}
           </div>
           <div style={styles.superSubs}>
-            <span style={styles.superSubsLabel}>Super-Subs or 5th team:</span> Byron,Magic Scott, Pete,
-            Brandon
+            <span style={styles.superSubsLabel}>Super-Subs or 5th team:</span> Byron, Magic Scott, Pete,
+             Brandon
           </div>
         </div>
 
