@@ -130,7 +130,7 @@ export default function App() {
             ))}
           </div>
           <div style={styles.superSubs}>
-            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,Magic Scott, Pete
+            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,Magic Scott, Pete,
             Brandon (maybe)
           </div>
         </div>
