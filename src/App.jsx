@@ -25,7 +25,7 @@ const TEAMS = [
   },
   {
     name: "Team 4",
-    players: ["Lucas", "Davy", "Dave / Pete", "Spencer"],
+    players: ["Lucas", "Davy", "Dave", "Spencer"],
     color: "#44403c",
     bg: "#fafaf9",
   },
@@ -130,7 +130,7 @@ export default function App() {
             ))}
           </div>
           <div style={styles.superSubs}>
-            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,
+            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,Magic Scott, Pete
             Brandon (maybe)
           </div>
         </div>
