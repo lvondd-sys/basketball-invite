@@ -29,6 +29,13 @@ const TEAMS = [
   },
 ];
 
+const PHOTOS = [
+  "/WhatsApp Image 2026-08-23 at 21.51.01.jpeg",
+  "/WhatsApp Image 2026-08-24 at 07.11.00.jpeg",
+  "/WhatsApp Image 2026-08-24 at 07.11.24.jpeg",
+  "/WhatsApp Image 2026-08-24 at 07.11.30.jpeg",
+];
+
 export default function App() {
   return (
     <div style={styles.page}>
@@ -130,6 +137,17 @@ export default function App() {
                 allowFullScreen
               />
             </div>
+          </div>
+        </div>
+
+        <div style={styles.photosSection}>
+          <h2 style={styles.faqTitle}>Photos</h2>
+          <div style={styles.photosGrid}>
+            {PHOTOS.map((src) => (
+              <div key={src} style={styles.photoWrapper}>
+                <img src={src} alt="Game highlight" style={styles.photo} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -293,5 +311,30 @@ const styles = {
     fontWeight: 800,
     color: "#1c1917",
     margin: "0 0 16px",
+  },
+  photosSection: {
+    marginTop: "28px",
+    textAlign: "left",
+  },
+  photosGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "8px",
+  },
+  photoWrapper: {
+    position: "relative",
+    width: "100%",
+    paddingBottom: "100%",
+    borderRadius: "8px",
+    overflow: "hidden",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+  },
+  photo: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
   },
 };
