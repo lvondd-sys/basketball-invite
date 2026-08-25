@@ -220,20 +220,44 @@ export default function App() {
               onClick={showPrev}
               aria-label="Previous photo"
             >
-              &#8249;
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </button>
-            <img
-              src={PHOTOS[lightboxIndex]}
-              alt="Game highlight large"
-              style={styles.lightboxImage}
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div style={styles.lightboxImageWrap}>
+              <img
+                src={PHOTOS[lightboxIndex]}
+                alt="Game highlight large"
+                style={styles.lightboxImage}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
             <button
               style={{ ...styles.lightboxArrow, ...styles.lightboxArrowRight }}
               onClick={showNext}
               aria-label="Next photo"
             >
-              &#8250;
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
             <div style={styles.lightboxCounter}>
               {lightboxIndex + 1} / {PHOTOS.length}
@@ -439,9 +463,19 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    gap: "8px",
     zIndex: 100,
     padding: "24px",
     cursor: "zoom-out",
+  },
+  lightboxImageWrap: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: "1 1 auto",
+    minWidth: 0,
+    minHeight: 0,
+    height: "100%",
   },
   lightboxImage: {
     maxWidth: "100%",
@@ -463,28 +497,22 @@ const styles = {
     padding: 0,
   },
   lightboxArrow: {
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)",
     background: "rgba(255,255,255,0.15)",
     border: "none",
     color: "#fff",
-    fontSize: "40px",
-    lineHeight: 1,
     cursor: "pointer",
     width: "48px",
     height: "48px",
+    minWidth: "48px",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
+    padding: 0,
   },
-  lightboxArrowLeft: {
-    left: "12px",
-  },
-  lightboxArrowRight: {
-    right: "12px",
-  },
+  lightboxArrowLeft: {},
+  lightboxArrowRight: {},
   lightboxCounter: {
     position: "absolute",
     bottom: "20px",
