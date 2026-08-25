@@ -5,7 +5,7 @@ const EVENT_LOCATION = "Clinton Park";
 const TEAMS = [
   {
     name: "Team 1",
-    players: ["Jake", "Forest", "Cody", "Oz"],
+    players: ["Jake", "Forest", "Pete / Scott", "Oz"],
     color: "#1e3a5f",
     bg: "#f0f4f8",
   },
@@ -17,9 +17,10 @@ const TEAMS = [
   },
   {
     name: "Team 3",
-    players: ["Gavin (maybe)", "Eric M", "Nate", "Matt (out)"],
-    color: "#2c5282",
-    bg: "#eff6ff",
+    players: ["Gavin", "Eric M", "Nate / Byron", "Cody"],
+    color: "#b8860b",
+    bg: "#fffbeb",
+    winner: true,
   },
   {
     name: "Team 4",
@@ -80,7 +81,10 @@ export default function App() {
                 key={team.name}
                 style={{
                   ...styles.teamCol,
-                  boxShadow: `0 3px 0 0 ${team.color} inset, 0 2px 6px rgba(0,0,0,0.05)`,
+                  ...(team.winner ? styles.teamColWinner : {}),
+                  boxShadow: team.winner
+                    ? `0 3px 0 0 ${team.color} inset, 0 4px 14px rgba(184,134,11,0.35)`
+                    : `0 3px 0 0 ${team.color} inset, 0 2px 6px rgba(0,0,0,0.05)`,
                 }}
               >
                 <div
@@ -89,6 +93,7 @@ export default function App() {
                     color: "#1c1917",
                   }}
                 >
+                  {team.winner ? "🏆 " : ""}
                   {team.name}
                 </div>
                 <div style={styles.teamPlayers}>
@@ -239,6 +244,10 @@ const styles = {
     background: "#fafaf9",
     border: "1px solid #e7e5e4",
     borderRadius: "4px",
+  },
+  teamColWinner: {
+    background: "linear-gradient(180deg, #fef9e7 0%, #fdf3d1 100%)",
+    border: "1px solid #e3c56b",
   },
   teamNameBadge: {
     fontFamily: "'Permanent Marker', cursive",
