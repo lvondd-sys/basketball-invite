@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const EVENT_DATE = "Sunday, August 23rd";
 const EVENT_TIME = "3PM";
 const EVENT_LOCATION = "Clinton Park";
@@ -19,45 +17,19 @@ const TEAMS = [
   },
   {
     name: "Team 3",
-    players: ["Gavin", "Eric M", "Nate", "Chris"],
+    players: ["Gavin (maybe)", "Eric M", "Nate", "Matt (out)"],
     color: "#2c5282",
     bg: "#eff6ff",
   },
   {
     name: "Team 4",
-    players: ["Lucas", "Davy", "Dave", "Spencer"],
+    players: ["Lucas", "Davy", "Dave / Pete", "Spencer"],
     color: "#44403c",
     bg: "#fafaf9",
   },
 ];
 
-const FAQS = [
-  {
-    q: "What must you bring?",
-    a: "A light shirt and a dark shirt (or jerseys) so we can tell teams apart on the court and get some good pictures.",
-  },
-  {
-    q: "How does the tournament work?",
-    a: "Round robin, then a final. Each team plays every other team once (6 games), then the top 2 records play a championship game.",
-  },
-  {
-    q: "How do you score points?",
-    a: "Buckets are worth 2 or 3 points, same as regular ball.",
-  },
-  { q: "What's the winning score?", a: "First team to 15 points wins." },
-  {
-    q: "What happens if a game runs long?",
-    a: "Games are capped at 20 minutes. If nobody's hit 15 by then, it's a 5-minute overtime.",
-  },
-  {
-    q: "What should you bring?",
-    a: "A camping chair, some snacks, water, and beers.",
-  },
-];
-
 export default function App() {
-  const [openFaq, setOpenFaq] = useState(0);
-
   return (
     <div style={styles.page}>
       <style>{`
@@ -130,29 +102,34 @@ export default function App() {
             ))}
           </div>
           <div style={styles.superSubs}>
-            <span style={styles.superSubsLabel}>Super-Subs or 5th team:</span> Byron, Magic Scott, Pete,
-             Brandon
+            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,
+            Brandon (maybe)
           </div>
         </div>
 
-        <div style={styles.faqSection}>
-          <h2 style={styles.faqTitle}>Good to know</h2>
-          <div style={styles.faqList}>
-            {FAQS.map((item, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div key={item.q} style={styles.faqItem}>
-                  <button
-                    style={styles.faqButton}
-                    onClick={() => setOpenFaq(isOpen ? -1 : i)}
-                  >
-                    <span style={styles.faqQuestion}>{item.q}</span>
-                    <span style={styles.faqToggle}>{isOpen ? "–" : "+"}</span>
-                  </button>
-                  {isOpen && <p style={styles.faqAnswer}>{item.a}</p>}
-                </div>
-              );
-            })}
+        <div style={styles.videosSection}>
+          <h2 style={styles.faqTitle}>Hype Reel</h2>
+          <div style={styles.videosGrid}>
+            <div style={styles.videoWrapper}>
+              <iframe
+                style={styles.video}
+                src="https://www.youtube.com/embed/1ASKZzzqOqI"
+                title="Basketball Invite Video 1"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div style={styles.videoWrapper}>
+              <iframe
+                style={styles.video}
+                src="https://www.youtube.com/embed/myZ6jNhXCWA"
+                title="Basketball Invite Video 2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -286,57 +263,35 @@ const styles = {
     fontWeight: 700,
     color: "#1c1917",
   },
-  faqSection: {
+  videosSection: {
     marginTop: "28px",
     textAlign: "left",
+  },
+  videosGrid: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+  },
+  videoWrapper: {
+    position: "relative",
+    width: "100%",
+    paddingBottom: "56.25%",
+    borderRadius: "8px",
+    overflow: "hidden",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+  },
+  video: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    border: "none",
   },
   faqTitle: {
     fontSize: "20px",
     fontWeight: 800,
     color: "#1c1917",
     margin: "0 0 16px",
-  },
-  faqList: {
-    display: "flex",
-    flexDirection: "column",
-    borderBottom: "1px solid #e7e5e4",
-  },
-  faqItem: {
-    borderTop: "1px solid #e7e5e4",
-    padding: "14px 0",
-  },
-  faqButton: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "12px",
-    width: "100%",
-    background: "none",
-    border: "none",
-    padding: 0,
-    margin: 0,
-    cursor: "pointer",
-    textAlign: "left",
-    font: "inherit",
-  },
-  faqQuestion: {
-    fontSize: "14px",
-    fontWeight: 700,
-    color: "#1c1917",
-  },
-  faqToggle: {
-    fontSize: "18px",
-    fontWeight: 700,
-    color: "#1c1917",
-    flexShrink: 0,
-    lineHeight: 1,
-    width: "16px",
-    textAlign: "center",
-  },
-  faqAnswer: {
-    fontSize: "14px",
-    color: "#57534e",
-    lineHeight: 1.5,
-    margin: "10px 0 0",
   },
 };
