@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const EVENT_DATE = "Sunday, August 23rd";
 const EVENT_TIME = "3PM";
@@ -40,7 +40,44 @@ const PHOTOS = [
 ];
 
 export default function App() {
-  const [lightboxPhoto, setLightboxPhoto] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const showPrev = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((i) => (i - 1 + PHOTOS.length) % PHOTOS.length);
+  };
+  const showNext = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((i) => (i + 1) % PHOTOS.length);
+  };
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setLightboxIndex((i) => (i - 1 + PHOTOS.length) % PHOTOS.length);
+      } else if (e.key === "ArrowRight") {
+        setLightboxIndex((i) => (i + 1) % PHOTOS.length);
+      } else if (e.key === "Escape") {
+        setLightboxIndex(null);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxIndex]);
+
+  const onTouchStart = (e) => setTouchStartX(e.touches[0].clientX);
+  const onTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (deltaX > 50) {
+      setLightboxIndex((i) => (i - 1 + PHOTOS.length) % PHOTOS.length);
+    } else if (deltaX < -50) {
+      setLightboxIndex((i) => (i + 1) % PHOTOS.length);
+    }
+    setTouchStartX(null);
+  };
 
   return (
     <div style={styles.page}>
@@ -151,37 +188,56 @@ export default function App() {
         <div style={styles.photosSection}>
           <h2 style={styles.faqTitle}>Photos</h2>
           <div style={styles.photosGrid}>
-            {PHOTOS.map((src) => (
+            {PHOTOS.map((src, i) => (
               <div key={src} style={styles.photoWrapper}>
                 <img
                   src={src}
                   alt="Game highlight"
                   style={styles.photo}
-                  onClick={() => setLightboxPhoto(src)}
+                  onClick={() => setLightboxIndex(i)}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {lightboxPhoto && (
+        {lightboxIndex !== null && (
           <div
             style={styles.lightboxOverlay}
-            onClick={() => setLightboxPhoto(null)}
+            onClick={() => setLightboxIndex(null)}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
             <button
               style={styles.lightboxClose}
-              onClick={() => setLightboxPhoto(null)}
+              onClick={() => setLightboxIndex(null)}
               aria-label="Close"
             >
               &times;
             </button>
+            <button
+              style={{ ...styles.lightboxArrow, ...styles.lightboxArrowLeft }}
+              onClick={showPrev}
+              aria-label="Previous photo"
+            >
+              &#8249;
+            </button>
             <img
-              src={lightboxPhoto}
+              src={PHOTOS[lightboxIndex]}
               alt="Game highlight large"
               style={styles.lightboxImage}
               onClick={(e) => e.stopPropagation()}
             />
+            <button
+              style={{ ...styles.lightboxArrow, ...styles.lightboxArrowRight }}
+              onClick={showNext}
+              aria-label="Next photo"
+            >
+              &#8250;
+            </button>
+            <div style={styles.lightboxCounter}>
+              {lightboxIndex + 1} / {PHOTOS.length}
+            </div>
           </div>
         )}
       </div>
@@ -405,5 +461,40 @@ const styles = {
     lineHeight: 1,
     cursor: "pointer",
     padding: 0,
+  },
+  lightboxArrow: {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    background: "rgba(255,255,255,0.15)",
+    border: "none",
+    color: "#fff",
+    fontSize: "40px",
+    lineHeight: 1,
+    cursor: "pointer",
+    width: "48px",
+    height: "48px",
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  lightboxArrowLeft: {
+    left: "12px",
+  },
+  lightboxArrowRight: {
+    right: "12px",
+  },
+  lightboxCounter: {
+    position: "absolute",
+    bottom: "20px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    color: "#fff",
+    fontSize: "14px",
+    fontWeight: 600,
+    background: "rgba(0,0,0,0.4)",
+    padding: "4px 12px",
+    borderRadius: "12px",
   },
 };
