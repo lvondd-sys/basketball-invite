@@ -11,13 +11,13 @@ const TEAMS = [
   },
   {
     name: "Team 2",
-    players: ["Hummer", "Erik B", "Steve", "Isiah"],
+    players: ["Hummer", "Erik B", "Steve / Byron", "Isiah"],
     color: "#0c0a09",
     bg: "#f5f5f4",
   },
   {
     name: "Team 3",
-    players: ["Gavin", "Eric M", "Nate / Byron", "Cody"],
+    players: ["Gavin", "Eric M", "Nate", "Cody"],
     color: "#b8860b",
     bg: "#fffbeb",
     winner: true,
