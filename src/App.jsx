@@ -114,8 +114,7 @@ export default function App() {
             ))}
           </div>
           <div style={styles.superSubs}>
-            <span style={styles.superSubsLabel}>Super-Subs:</span> Byron,
-            Brandon (maybe)
+            <span style={styles.superSubsLabel}>Hype Men:</span> Ben and John
           </div>
         </div>
 
