@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const EVENT_DATE = "Sunday, August 23rd";
 const EVENT_TIME = "3PM";
 const EVENT_LOCATION = "Clinton Park";
@@ -11,20 +13,20 @@ const TEAMS = [
   },
   {
     name: "Team 2",
-    players: ["Hummer", "Erik B", "Steve / Byron", "Isiah"],
+    players: ["Hummer", "Erik B", "Steve", "Isiah"],
     color: "#0c0a09",
     bg: "#f5f5f4",
   },
   {
     name: "Team 3",
-    players: ["Gavin", "Eric M", "Nate", "Cody"],
+    players: ["Gavin", "Eric M", "Nate / Byron", "Cody"],
     color: "#b8860b",
     bg: "#fffbeb",
     winner: true,
   },
   {
     name: "Team 4",
-    players: ["Lucas", "Davy", "Dave", "Spencer"],
+    players: ["Lucas", "Davy", "Dave / Pete", "Spencer"],
     color: "#44403c",
     bg: "#fafaf9",
   },
@@ -38,6 +40,8 @@ const PHOTOS = [
 ];
 
 export default function App() {
+  const [lightboxPhoto, setLightboxPhoto] = useState(null);
+
   return (
     <div style={styles.page}>
       <style>{`
@@ -149,11 +153,37 @@ export default function App() {
           <div style={styles.photosGrid}>
             {PHOTOS.map((src) => (
               <div key={src} style={styles.photoWrapper}>
-                <img src={src} alt="Game highlight" style={styles.photo} />
+                <img
+                  src={src}
+                  alt="Game highlight"
+                  style={styles.photo}
+                  onDoubleClick={() => setLightboxPhoto(src)}
+                />
               </div>
             ))}
           </div>
         </div>
+
+        {lightboxPhoto && (
+          <div
+            style={styles.lightboxOverlay}
+            onClick={() => setLightboxPhoto(null)}
+          >
+            <button
+              style={styles.lightboxClose}
+              onClick={() => setLightboxPhoto(null)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <img
+              src={lightboxPhoto}
+              alt="Game highlight large"
+              style={styles.lightboxImage}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -344,5 +374,36 @@ const styles = {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    cursor: "zoom-in",
+  },
+  lightboxOverlay: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,0.85)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 100,
+    padding: "24px",
+    cursor: "zoom-out",
+  },
+  lightboxImage: {
+    maxWidth: "100%",
+    maxHeight: "100%",
+    borderRadius: "8px",
+    boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+    cursor: "default",
+  },
+  lightboxClose: {
+    position: "absolute",
+    top: "16px",
+    right: "24px",
+    background: "none",
+    border: "none",
+    color: "#fff",
+    fontSize: "36px",
+    lineHeight: 1,
+    cursor: "pointer",
+    padding: 0,
   },
 };
