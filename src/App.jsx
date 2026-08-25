@@ -157,7 +157,7 @@ export default function App() {
                   src={src}
                   alt="Game highlight"
                   style={styles.photo}
-                  onDoubleClick={() => setLightboxPhoto(src)}
+                  onClick={() => setLightboxPhoto(src)}
                 />
               </div>
             ))}
