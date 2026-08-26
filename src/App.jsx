@@ -39,6 +39,86 @@ const PHOTOS = [
   "/WhatsApp Image 2026-08-24 at 07.11.30.jpeg",
 ];
 
+const ESSAY = {
+  title: "Keep on Playin'",
+  author: "by David J Kmetovic",
+  sections: [
+    {
+      heading: "The Wednesday Night Payoff",
+      paragraphs: [
+        `"Nobody gets hurt, guys!" It's the standing hope and agreement in my Wednesday night basketball group. Two hours of fast, unpredictable, yet structured "play" among adults, some now in their seventies.`,
+        "A father and son who somehow still compete without mercy. One retired guy, who stubbornly keeps trying a few old moves that aged well. Another who often laughs when he dribbles, seeing angles the rest of us miss. We come from three different countries, different careers. For these two hours none of that matters.",
+        "We warm up and quickly shoot for teams, randomly mixing well-known styles, strengths, and weaknesses. Winners stay on.",
+        "Why do we do it? What makes us ensure our schedules are clear so we can immerse ourselves in this apparent mayhem?",
+        "It's the week's payoff, where everyday details, the news cycle, and anxieties fall away, are crushed into insignificance.",
+      ],
+    },
+    {
+      heading: "The Mismatch",
+      paragraphs: [
+        "Playing in a way that demands muscular and aerobic output, and which simultaneously requires a focus on rapid responses, seems to be one path toward maintaining lifelong health.",
+        "Evolutionary biologist Daniel Lieberman has written about how the bodies of hominids evolved to allow vigorous movement, yet we now live in an environment where very little is required of us. He traces several modern health problems back to that mismatch.",
+        `Of course we're all aware one should "stay in shape," and although many of us engage in activities such as walking, running, cycling, or strength training, these activities don't really demand the same constant adaptation. None of these actions taken alone seem very similar to what it took to survive for so much of human history.`,
+        "Are there modern activities we can adopt where we reinforce the mind/body connection that stimulates and reengages these ancient traits?",
+        "My experience says we can.",
+      ],
+    },
+    {
+      heading: "Adults at Play",
+      paragraphs: [
+        "This is where the role of sporting activities comes in. Tennis or basketball, for example, require constant adjustment of position, awareness of physical obstacles, and eye-hand coordination at a very rapid pace. Situations change quickly and we respond using skills sharpened over time. Hopefully, our reaction to being challenged only stimulates us to improve.",
+        "Psychiatrist John J. Ratey has written extensively about the link between movement and brain function. Sport, with its constant decisions and adjustments often made under pressure, may be one of the most natural ways to activate and strengthen those connections. Pickleball, soccer, basketball—they all answer that call.",
+        `Now, I can't pretend that our Wednesday night full-court hoop sessions recreate ancient life on the savanna. But I also can't ignore how "right" it feels—the sprinting, the scanning, the constant adjustments—as if some old circuitry is being exercised, not just my legs.`,
+        "No time for deliberation—actions arise from the body itself, reinforced by decades of experience. It feels like a body-mind fusion where muscle memory takes over.",
+        `Sporting games that include a tangible measure of success by keeping score and noting metrics of personal performance (points scored, aces, rebounds, etc.) give us inarguable measures of effectiveness. The more negative experiences, such as having a shot blocked, might also build emotional resilience through our need to quickly "shake it off" and get back in the game.`,
+      ],
+    },
+    {
+      heading: "Belonging",
+      paragraphs: [
+        "Another aspect of the utility of sports is that they are social activities. We are, after all, tribal creatures, and for most of human history coordinated effort has been a key to our survival. In the modern world we have sports, where we accept well-established rules and agreements, a valuable and non-violent substitute for earlier forms of both conflict and cooperation. Instant feedback, gaining insight on clever strategies, and the near constant need to adjust on the fly in a social or one-on-one context all strengthen these abilities, which mostly lay dormant in modern life.",
+        "My own experience is that a palpable bond has formed in my group that regularly meets to share in the love of our chosen form of play.",
+      ],
+    },
+    {
+      heading: "If it Feels Good…",
+      paragraphs: [
+        "People can have a strong attraction, even an addiction, to the reward neurotransmitters our brains generate, and they seem to flow freely in the active play state. To those like us who have discovered a sport we love, heading off to play never feels like a chore or workout task we must complete: we are only too eager to get back on the court again, and happily run ourselves ragged. After a week mediated by screens, the game feels less like exercise and more like necessity. And doing well for the team carries its own quiet reward.",
+      ],
+    },
+    {
+      heading: 'Beyond Staying "In Shape"',
+      paragraphs: [
+        `Whatever form it takes, playing sports, as a modern echo of more primal demands, just might play a role in maintaining the health of the whole mind/body system into the later years. Though many avoid activities that embrace "competition" I find the experiences in every session—good, disappointing, or physically painful—only natural to accept in the wholeness of the experience.`,
+        "Could that satisfaction—and the promise of another dose of dopamine—help our bodies heal and recover, so we can return?",
+      ],
+    },
+    {
+      heading: "Why Stop?",
+      paragraphs: [
+        `"Ball in!"`,
+        "The ball is checked after a foul.",
+        "Shoes squeak as one of us makes a quick cut to get open in the key. But he is a step slow this time and the pass is stolen. It's getting late, we're getting tired.",
+        "And of course our bodies do complain. Our group has watched players drift away after a surgery, losing the battle with a chronic condition, or simply feeling the accumulation of years. Most never return. But for now, the lucky ones keep showing up, still playing through their adulthood.",
+        "As I age, I feel a certain pull toward relaxation, to live a more observational and passive life. But I do push back against that tendency, and my Wednesday nights allow me to hold on to this more physical way to be in the world.",
+        "The wrestling play we see exhibited by lion cubs builds essential strength and agility. Yet, just as with humans, play generally fades away as maturity and a more self-sufficient life begins.",
+        "Maybe we should never give up playing.",
+      ],
+    },
+    {
+      heading: "One More Time!",
+      paragraphs: [
+        "We click off the lights to our creaky old gym and, in sweaty good humor, head over to the bar for the last part of the night's ritual, to finally relax. Our conversations over beer can range from the evening's court antics or MVP, to the recent death of a parent. Rae, our bartender, looks up, grabs the pint glasses.",
+        "We settle in our corner booth and clink them in a quiet toast.",
+        "For another week.",
+        "For what we keep building.",
+        "And hey, nobody got hurt.",
+        "Reasons enough to keep on playin'.",
+      ],
+    },
+  ],
+};
+
 export default function App() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
@@ -212,6 +292,24 @@ export default function App() {
                   style={styles.photo}
                   onClick={() => setLightboxIndex(i)}
                 />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={styles.essaySection}>
+          <h2 style={styles.faqTitle}>A Word from Dave</h2>
+          <div style={styles.essayCard}>
+            <h3 style={styles.essayTitle}>{ESSAY.title}</h3>
+            <p style={styles.essayAuthor}>{ESSAY.author}</p>
+            {ESSAY.sections.map((section) => (
+              <div key={section.heading} style={styles.essaySubsection}>
+                <h4 style={styles.essayHeading}>{section.heading}</h4>
+                {section.paragraphs.map((p, i) => (
+                  <p key={i} style={styles.essayParagraph}>
+                    {p}
+                  </p>
+                ))}
               </div>
             ))}
           </div>
@@ -494,6 +592,44 @@ const styles = {
     fontWeight: 800,
     color: "#1c1917",
     margin: "0 0 16px",
+  },
+  essaySection: {
+    marginTop: "28px",
+    textAlign: "left",
+  },
+  essayCard: {
+    background: "#fafaf9",
+    border: "1px solid #e7e5e4",
+    borderRadius: "8px",
+    padding: "24px 20px",
+  },
+  essayTitle: {
+    fontSize: "20px",
+    fontWeight: 800,
+    color: "#1c1917",
+    margin: "0 0 4px",
+    fontStyle: "italic",
+  },
+  essayAuthor: {
+    fontSize: "13px",
+    color: "#78716c",
+    margin: "0 0 20px",
+    fontWeight: 600,
+  },
+  essaySubsection: {
+    marginBottom: "20px",
+  },
+  essayHeading: {
+    fontSize: "15px",
+    fontWeight: 800,
+    color: "#1c1917",
+    margin: "0 0 8px",
+  },
+  essayParagraph: {
+    fontSize: "14px",
+    color: "#44403c",
+    lineHeight: 1.6,
+    margin: "0 0 10px",
   },
   photosSection: {
     marginTop: "28px",
